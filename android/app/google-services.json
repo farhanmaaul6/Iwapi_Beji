@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "787497817025",
+    "project_id": "iwapi-a7e76",
+    "storage_bucket": "iwapi-a7e76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787497817025:android:bbd6ac19d27e6ffda15540",
+        "android_client_info": {
+          "package_name": "com.example.iwapi_beji"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787497817025-flsstdhme7059nd6b0brtiqrom2pn4p0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNQYoCYyAHeZeqt96cwcvpew78guJUW0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787497817025-flsstdhme7059nd6b0brtiqrom2pn4p0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
