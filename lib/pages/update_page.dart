@@ -1,42 +1,64 @@
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:iwapi_beji/components/model.dart';
 
-class AddPage extends StatefulWidget {
-  const AddPage({Key? key}) : super(key: key);
+class UpdatePage extends StatefulWidget {
+  final Pengurus pengurus;
+
+  const UpdatePage({Key? key, required this.pengurus}) : super(key: key);
 
   @override
-  State<AddPage> createState() => _AddPageState();
+  State<UpdatePage> createState() => _UpdatePageState();
 }
 
-class _AddPageState extends State<AddPage> {
-  TextEditingController namaController = TextEditingController();
-  TextEditingController alamatController = TextEditingController();
-  TextEditingController noHpController = TextEditingController();
-  TextEditingController jenisUsahaController = TextEditingController();
-  TextEditingController perizinanController = TextEditingController();
+class _UpdatePageState extends State<UpdatePage> {
+  TextEditingController updateNama = TextEditingController();
+  TextEditingController updateAlamat = TextEditingController();
+  TextEditingController updatenoHp = TextEditingController();
+  TextEditingController updateJenisUsaha = TextEditingController();
+  TextEditingController updateperizinan = TextEditingController();
 
-  Future<void> createPengurus(Pengurus pengurus) async {
-    final docPengurus = FirebaseFirestore.instance.collection('iwapi').doc();
-    pengurus.id = docPengurus.id;
-
-    final json = pengurus.toJson();
-    await docPengurus.set(json);
+  @override
+  void initState() {
+    super.initState();
+    // Set the text field controllers with the provided data for editing
+    updateNama.text = widget.pengurus.nama;
+    updateAlamat.text = widget.pengurus.alamat;
+    updatenoHp.text = widget.pengurus.noHp.toString();
+    updateJenisUsaha.text = widget.pengurus.jenisUsaha;
+    updateperizinan.text = widget.pengurus.perizinan;
   }
 
-  Future<void> _showSuccessDialog() async {
-    return showDialog<void>(
+  Future<void> updatePengurus(Pengurus pengurus) async {
+    final docPengurus =
+        FirebaseFirestore.instance.collection('iwapi').doc(pengurus.id);
+    final json = pengurus.toJson();
+    if (pengurus.noHp != null) {
+      json['noHp'] = int.parse(pengurus.noHp!);
+    }
+
+    await docPengurus.update({
+      'nama': pengurus.nama,
+      'alamat': pengurus.alamat,
+      'noHp': pengurus.noHp,
+      'jenisUsaha': pengurus.jenisUsaha,
+      'perizinan': pengurus.perizinan,
+    });
+  }
+
+  void showUpdateConfirmation() {
+    showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Sukses'),
-          content: const Text('Data pengurus telah ditambahkan.'),
+          content: const Text('Data pengurus telah diperbarui.'),
           actions: <Widget>[
             TextButton(
               child: const Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
-                Navigator.pushReplacementNamed(context, '/Navbarpage');
+                Navigator.of(context).pushReplacementNamed('/Navbarpage');
               },
             ),
           ],
@@ -48,7 +70,6 @@ class _AddPageState extends State<AddPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
       body: ListView(
         padding: EdgeInsets.all(16),
         children: <Widget>[
@@ -56,7 +77,7 @@ class _AddPageState extends State<AddPage> {
             height: 20,
           ),
           Text(
-            'Tambah Anggota',
+            'Ubah Anggota',
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
@@ -67,7 +88,7 @@ class _AddPageState extends State<AddPage> {
             height: 40,
           ),
           TextFormField(
-            controller: namaController,
+            controller: updateNama,
             decoration: InputDecoration(
               labelText: 'Nama',
               prefixIcon: Icon(Icons.person),
@@ -78,7 +99,7 @@ class _AddPageState extends State<AddPage> {
             height: 20,
           ),
           TextField(
-            controller: alamatController,
+            controller: updateAlamat,
             decoration: InputDecoration(
               labelText: 'Alamat',
               prefixIcon: Icon(Icons.home),
@@ -89,7 +110,7 @@ class _AddPageState extends State<AddPage> {
             height: 30,
           ),
           TextField(
-            controller: noHpController,
+            controller: updatenoHp,
             decoration: InputDecoration(
               labelText: 'No.Hp',
               prefixIcon: Icon(Icons.phone),
@@ -100,7 +121,7 @@ class _AddPageState extends State<AddPage> {
             height: 30,
           ),
           TextField(
-            controller: jenisUsahaController,
+            controller: updateJenisUsaha,
             decoration: InputDecoration(
               labelText: 'Jenis Usaha',
               prefixIcon: Icon(Icons.business_outlined),
@@ -111,7 +132,7 @@ class _AddPageState extends State<AddPage> {
             height: 30,
           ),
           TextField(
-            controller: perizinanController,
+            controller: updateperizinan,
             decoration: InputDecoration(
               labelText: 'Perizinan',
               prefixIcon: Icon(Icons.home_repair_service_sharp),
@@ -122,24 +143,23 @@ class _AddPageState extends State<AddPage> {
             height: 30,
           ),
           ElevatedButton(
-            onPressed: () async {
+            onPressed: () {
               final pengurus = Pengurus(
-                nama: namaController.text,
-                alamat: alamatController.text,
-                noHp: noHpController.text,
-                jenisUsaha: jenisUsahaController.text,
-                perizinan: perizinanController.text,
-              );
+                  id: widget.pengurus.id,
+                  nama: updateNama.text,
+                  alamat: updateAlamat.text,
+                  noHp: updatenoHp.text,
+                  jenisUsaha: updateJenisUsaha.text,
+                  perizinan: updateperizinan.text);
 
-              await createPengurus(pengurus);
-
-              await _showSuccessDialog();
+              updatePengurus(pengurus);
+              showUpdateConfirmation();
             },
             child: SizedBox(
               width: double.infinity,
               height: 50,
               child: Center(
-                child: Text('Tambah Data'),
+                child: Text('Ubah Data Anggota'),
               ),
             ),
           ),

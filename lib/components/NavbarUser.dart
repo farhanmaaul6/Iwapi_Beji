@@ -2,25 +2,25 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:iwapi_beji/pages/Profile/profile_pageAdmin.dart';
+import 'package:iwapi_beji/pages/Home_Page/Home_pageUser.dart';
+import 'package:iwapi_beji/pages/Profile/profile_pageUser.dart';
 import 'package:iwapi_beji/pages/add_page.dart';
 import 'package:iwapi_beji/pages/Home_Page/home_pageAdmin.dart';
 
-class NavbarPageAdmin extends StatefulWidget {
-  const NavbarPageAdmin({super.key});
+class NavbarPageUser extends StatefulWidget {
+  const NavbarPageUser({super.key});
 
   @override
-  State<NavbarPageAdmin> createState() => _NavbarPageAdminState();
+  State<NavbarPageUser> createState() => _NavbarPageUserState();
 }
 
-class _NavbarPageAdminState extends State<NavbarPageAdmin> {
+class _NavbarPageUserState extends State<NavbarPageUser> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    HomePageAdmin(),
-    AddPage(),
-    ProfilePageAdmin(),
+    HomePageUser(),
+    ProfilePageUser(),
   ];
 
   void _onItemTapped(int index) {
@@ -50,10 +50,6 @@ class _NavbarPageAdminState extends State<NavbarPageAdmin> {
         items: [
           Icon(
             Icons.home,
-            color: Colors.white,
-          ),
-          Icon(
-            Icons.add_circle_outline_rounded,
             color: Colors.white,
           ),
           Icon(

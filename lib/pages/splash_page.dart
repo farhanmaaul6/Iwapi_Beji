@@ -50,9 +50,9 @@ class _SplashPageState extends State<SplashPage> {
             SizedBox(
               height: 100,
             ),
-            SpinKitFadingCube(
+            SpinKitRing(
               color: Colors.indigo,
-              size: 30.0,
+              size: 50.0,
             ),
           ],
         ),

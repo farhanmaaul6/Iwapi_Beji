@@ -2,29 +2,34 @@ class Pengurus {
   String id;
   final String nama;
   final String alamat;
-  //final int noHp;
-  //final String jenisUsaha;
+  final String? noHp;
+  final String jenisUsaha;
+  final String perizinan;
 
   Pengurus({
     this.id = '',
     required this.nama,
     required this.alamat,
-    // required this.noHp,
-    //required this.jenisUsaha,
+    this.noHp,
+    required this.jenisUsaha,
+    required this.perizinan,
   });
 
   Map<String, dynamic> toJson() => {
         'id': id,
         'nama': nama,
         'alamat': alamat,
-        // 'No.Hp': noHp,
-        //'Jenis Usaha': jenisUsaha,
+        'noHp': noHp,
+        'jenisUsaha': jenisUsaha,
+        'perizinan': perizinan,
       };
 
   static Pengurus fromJson(Map<String, dynamic> json) => Pengurus(
-        nama: json['nama'],
-        alamat: json['alamat'],
-        //noHp: json['No.Hp'],
-        //jenisUsaha: json['jenis Usaha']
+        id: json['id'] ?? '',
+        nama: json['nama'] ?? '',
+        alamat: json['alamat'] ?? '',
+        noHp: json['noHp'] != null ? json['noHp'].toString() : null,
+        jenisUsaha: json['jenisUsaha'] ?? '',
+        perizinan: json['perizinan'] ?? '',
       );
 }
