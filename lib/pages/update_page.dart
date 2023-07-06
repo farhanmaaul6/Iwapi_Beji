@@ -58,7 +58,7 @@ class _UpdatePageState extends State<UpdatePage> {
               child: const Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
-                Navigator.of(context).pushReplacementNamed('/Navbarpage');
+                Navigator.of(context).pushReplacementNamed('/Navbarpageadmin');
               },
             ),
           ],

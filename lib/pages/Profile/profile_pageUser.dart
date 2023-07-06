@@ -100,6 +100,14 @@ class _ProfilePageUserState extends State<ProfilePageUser> {
                           title: Text('087880624699'),
                         ),
                         ListTile(
+                          leading: Icon(Icons.assignment_ind),
+                          title: Text('Tentang Aplikasi'),
+                          onTap: () {
+                            Navigator.pushReplacementNamed(
+                                context, '/tentangpageuser');
+                          },
+                        ),
+                        ListTile(
                           leading: Icon(Icons.logout),
                           title: Text('Logout'),
                           onTap: () {
@@ -109,14 +117,6 @@ class _ProfilePageUserState extends State<ProfilePageUser> {
                               '/loginpage',
                               (route) => false,
                             );
-                          },
-                        ),
-                        ListTile(
-                          leading: Icon(Icons.assignment_ind),
-                          title: Text('Tentang'),
-                          onTap: () {
-                            Navigator.pushReplacementNamed(
-                                context, '/tentangpageuser');
                           },
                         ),
                       ],

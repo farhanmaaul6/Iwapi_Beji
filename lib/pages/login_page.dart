@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:iwapi_beji/components/NavbarUser.dart';
+import 'package:iwapi_beji/components/Navbar/NavbarUser.dart';
 import 'package:iwapi_beji/components/reusable_widget.dart';
-import 'package:iwapi_beji/components/Navbar.dart';
+import 'package:iwapi_beji/components/Navbar/NavbarAdmin.dart';
 import 'package:iwapi_beji/pages/Home_Page/home_pageAdmin.dart';
 import 'package:iwapi_beji/pages/register_page.dart';
 

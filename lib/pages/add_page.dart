@@ -36,7 +36,7 @@ class _AddPageState extends State<AddPage> {
               child: const Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
-                Navigator.pushReplacementNamed(context, '/Navbarpage');
+                Navigator.pushReplacementNamed(context, '/Navbarpageadmin');
               },
             ),
           ],

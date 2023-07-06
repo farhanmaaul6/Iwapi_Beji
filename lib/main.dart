@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:iwapi_beji/components/Navbar.dart';
-import 'package:iwapi_beji/components/NavbarUser.dart';
+import 'package:iwapi_beji/components/Navbar/NavbarAdmin.dart';
+import 'package:iwapi_beji/components/Navbar/NavbarUser.dart';
 import 'package:iwapi_beji/components/model.dart';
 import 'package:iwapi_beji/firebase_options.dart';
+import 'package:iwapi_beji/pages/Home_Page/Home_pageUser.dart';
 import 'package:iwapi_beji/pages/Profile/profile_pageAdmin.dart';
+import 'package:iwapi_beji/pages/Profile/profile_pageUser.dart';
 import 'package:iwapi_beji/pages/Tentang_Page/tentang_pageUser.dart';
 import 'package:iwapi_beji/pages/add_page.dart';
 import 'package:iwapi_beji/pages/Home_Page/home_pageAdmin.dart';
@@ -25,6 +27,10 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
+  get nama => null;
+  get alamat => null;
+  get jenisUsaha => null;
+  get perizinan => null;
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +47,20 @@ class MyApp extends StatelessWidget {
         '/onboardingpage': (context) => OnboardingPage(),
         '/loginpage': (context) => LoginPage(),
         '/registerpage': (context) => RegisterPage(),
-        '/homepage': (context) => HomePageAdmin(),
+        '/homepageAdmin': (context) => HomePageAdmin(),
+        '/homepageUser': (context) => HomePageUser(),
         '/Navbarpageadmin': (context) => NavbarPageAdmin(),
         '/Navbarpageuser': (context) => NavbarPageUser(),
         '/addpage': (context) => AddPage(),
-        '/tentangpageadmin': (context) => TentangPageAdmin(),
+        '/updatepage': (context) => UpdatePage(
+            pengurus: Pengurus(
+                nama: nama,
+                alamat: alamat,
+                jenisUsaha: jenisUsaha,
+                perizinan: perizinan)),
         '/tentangpageuser': (context) => TentangPageUser(),
-        '/profilepage': (context) => ProfilePageAdmin(),
-        '/Navbarpageuser': (context) => NavbarPageUser(),
+        '/profilepageadmin': (context) => ProfilePageAdmin(),
+        '/profilepageuser': (context) => ProfilePageUser(),
       },
     );
   }

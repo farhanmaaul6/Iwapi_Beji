@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:iwapi_beji/pages/Home_Page/Home_pageUser.dart';
+import 'package:iwapi_beji/pages/Iwapi/IwapiUser.dart';
 import 'package:iwapi_beji/pages/Profile/profile_pageUser.dart';
 import 'package:iwapi_beji/pages/add_page.dart';
 import 'package:iwapi_beji/pages/Home_Page/home_pageAdmin.dart';
@@ -20,6 +21,7 @@ class _NavbarPageUserState extends State<NavbarPageUser> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     HomePageUser(),
+    IwapiUser(),
     ProfilePageUser(),
   ];
 
@@ -50,6 +52,10 @@ class _NavbarPageUserState extends State<NavbarPageUser> {
         items: [
           Icon(
             Icons.home,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.menu_book_rounded,
             color: Colors.white,
           ),
           Icon(

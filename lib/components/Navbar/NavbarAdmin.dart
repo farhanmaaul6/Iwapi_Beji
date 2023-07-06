@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:iwapi_beji/pages/Iwapi/IwapiAdmin.dart';
 import 'package:iwapi_beji/pages/Profile/profile_pageAdmin.dart';
 import 'package:iwapi_beji/pages/add_page.dart';
 import 'package:iwapi_beji/pages/Home_Page/home_pageAdmin.dart';
@@ -20,6 +21,7 @@ class _NavbarPageAdminState extends State<NavbarPageAdmin> {
   static List<Widget> _widgetOptions = <Widget>[
     HomePageAdmin(),
     AddPage(),
+    IwapiAdmin(),
     ProfilePageAdmin(),
   ];
 
@@ -54,6 +56,10 @@ class _NavbarPageAdminState extends State<NavbarPageAdmin> {
           ),
           Icon(
             Icons.add_circle_outline_rounded,
+            color: Colors.white,
+          ),
+          Icon(
+            Icons.menu_book_rounded,
             color: Colors.white,
           ),
           Icon(

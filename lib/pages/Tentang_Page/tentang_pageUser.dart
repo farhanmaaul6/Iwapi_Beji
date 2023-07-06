@@ -44,7 +44,7 @@ class TentangPageUser extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Aplikasi Dapurku merupakan aplikasi yang dapat membantu kegiatan inventaris bahan dapur pada tingkat rumah tangga. Aplikasi ini memudahkan pengguna dalam menginventarisir bahan dapur yang ada di dapur pengguna. Aplikasi ini dibuat guna melengkapi sebagian syarat dalam mencapai gelar setara sarjana muda, yaitu Penulisan ilmiah.',
+                    'Aplikasi “Iwapi Beji” merupakan aplikasi pendataan pengurus IWAPI Ranting Beji berbasis Android dengan menggunakan framework Flutter dan Firebase sebagai databasenya. Aplikasi ini memungkinkan pengguna untuk mendigitalisasi data setiap pengurus dengan mudah. Aplikasi ini akan meminta data para pengurus seperti nama, nomor telepon, alamat dan jenis usaha.Aplikasi “Iwapi Beji” merupakan aplikasi pendataan pengurus IWAPI Ranting Beji berbasis Android dengan menggunakan framework Flutter dan Firebase sebagai databasenya. Aplikasi ini memungkinkan pengguna untuk mendigitalisasi data setiap pengurus dengan mudah. Aplikasi ini akan meminta data para pengurus seperti nama, nomor telepon, alamat dan jenis usaha.',
                     textAlign: TextAlign.justify,
                     softWrap: true,
                     style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),

@@ -100,6 +100,14 @@ class _ProfilePageAdminState extends State<ProfilePageAdmin> {
                           title: Text('087880624699'),
                         ),
                         ListTile(
+                          leading: Icon(Icons.assignment_ind),
+                          title: Text('Tentang Aplikasi'),
+                          onTap: () {
+                            Navigator.pushReplacementNamed(
+                                context, '/tentangpageadmin');
+                          },
+                        ),
+                        ListTile(
                           leading: Icon(Icons.logout),
                           title: Text('Logout'),
                           onTap: () {
@@ -109,14 +117,6 @@ class _ProfilePageAdminState extends State<ProfilePageAdmin> {
                               '/loginpage',
                               (route) => false,
                             );
-                          },
-                        ),
-                        ListTile(
-                          leading: Icon(Icons.assignment_ind),
-                          title: Text('Tentang'),
-                          onTap: () {
-                            Navigator.pushReplacementNamed(
-                                context, '/tentangpageadmin');
                           },
                         ),
                       ],

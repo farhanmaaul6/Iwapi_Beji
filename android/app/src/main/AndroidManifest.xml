@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.iwapi_beji">
    <application
-        android:label="iwapi_beji"
+        android:label="Iwapi Beji"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/logo_iwapi">
         <activity
             android:name=".MainActivity"
             android:exported="true"
